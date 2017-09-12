@@ -121,6 +121,88 @@
                  background-color: #3e8e41;
              }
          }
+		 .s-header__shrink .s-header__navbar {
+  box-shadow: 0 0 0.9375rem 0 rgba(34, 35, 36, 0.05);
+}
+
+.s-header__shrink.-is-open .s-header__navbar {
+  background: transparent;
+}
+
+/* Logo */
+.s-header__shrink.-is-open .s-header__logo-img-default {
+  opacity: 1;
+}
+
+.s-header__shrink.-is-open .s-header__logo-img-shrink {
+  opacity: 0;
+}
+
+.s-header__shrink .s-header__navbar {
+  background: #fff;
+  opacity: 0;
+}
+
+.s-header__shrink .s-header__logo-img-default {
+  opacity: 0;
+}
+
+.s-header__shrink .s-header__logo-img-shrink {
+  opacity: 1;
+}
+
+/* Trigger Icon */
+.s-header__shrink.-is-open .s-header__trigger-icon {
+  background: #fff;
+
+}
+
+.s-header__shrink .s-header__trigger-icon {
+  background: #222324;
+}
+
+         .s-header__logo {
+            position: relative;
+            z-index: 9999;
+            width: 100%;
+            height: auto;
+            float: left;
+          }
+          
+          .s-header__logo-link {
+            display: inline-block;
+            padding: 1rem 0;
+          }
+          
+          .s-header__logo-link:focus, .s-header__logo-link:hover {
+            text-decoration: none;
+          }
+          
+          .s-header__logo-img-default, .s-header__logo-img-shrink {
+            display: block;
+            transition-duration: 300ms;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+          }
+          
+          .s-header__logo-img-default {
+            opacity: 1;
+          }
+          
+          .s-header__logo-img-shrink {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            opacity: 0;
+          }
+          
+          @media (max-width: 61.9em) {
+            .s-header__logo {
+              width: auto;
+              height: auto;
+              float: left;
+            }
+          }
          
         </style>
     </head>
@@ -130,6 +212,24 @@
     <body>
 
         <!--========== HEADER ==========-->
+	                <header class="navbar-fixed-top s-header js__header-sticky js__header-overlay">
+                <!-- Navbar -->
+                <div class="s-header__navbar">
+                    <div class="s-header__container">
+                        <div class="s-header__navbar-row">
+                            <div class="s-header__navbar-row-col">
+                                <!-- Logo -->
+                                <div class="s-header__logo">
+
+                                    <a href="index.html" class="s-header__logo-link">
+                                        <img class="s-header__logo-img s-header__logo-img-default" width="220" height="60" src="http://oulthdsdy.bkt.clouddn.com/icon.jpg" alt="flinkhub Logo">
+                                    </a>
+                                </div>
+                                <!-- End Logo -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!-- End Navbar -->
             <!-- Overlay -->            
             <!-- End Overlay -->
@@ -137,7 +237,7 @@
         <!--========== END HEADER ==========-->
 
         <!--========== PROMO BLOCK ==========-->
-        <section class="s-video-v2__bg" data-vidbg-bg="poster: http://oulthdsdy.bkt.clouddn.com/nogray.png" data-vidbg-options="loop: true, muted: true, overlay: false">
+        <section class="s-video-v2__bg" data-vidbg-bg="poster: http://oulthdsdy.bkt.clouddn.com/backicon.png" data-vidbg-options="loop: true, muted: true, overlay: false">
             <div class="container g-position--overlay g-text-center--xs">
                 <div class="g-margin-t-100--xs g-margin-b-100--xs g-margin-b-250--md main_content">
                     <h1 class="g-font-size-36--xs g-font-size-50--sm g-font-size-60--md g-color--white">Share Yours, Share Mine!</h1>
