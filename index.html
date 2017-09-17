@@ -430,4 +430,60 @@
         <script type="text/javascript" src="https://edperf.github.io/website-sharing/assets/static/js/tracking.js"></script>
 
         <!--========== END JAVASCRIPTS ==========-->
+<script type="application/javascript">
+            $(document).ready(function () {
+                var scrollTop = $(document).height() - $(window).height();
+                var scrollOffset = 25;
+                var scrollTracking = {"25": false, "50": false, "75": false};
+
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() > scrollOffset) {
+                        if ($(window).scrollTop() > 3 * (scrollTop / 4) && scrollTracking['75'] == false) {
+                            // Scrolled 75%
+                            scrollTracking['75'] = true;
+                            _paq.push(["trackEvent", "scroll", "scroll75", 75]);
+                        } else if ($(window).scrollTop() > 2 * (scrollTop / 4) && scrollTracking['50'] == false) {
+                            // Scrolled 50%
+                            scrollTracking['50'] = true;
+                            _paq.push(["trackEvent", "scroll", "scroll50", 50]);
+                        } else if ($(window).scrollTop() > (scrollTop / 4) && scrollTracking['25'] == false) {
+                            // Scrolled 25%
+                            scrollTracking['25'] = true;
+                            _paq.push(["trackEvent", "scroll", "scroll25", 25]);
+                        }
+                    }
+                });
+
+
+                $('.trackData').click(function(){
+                    var trackItem = $(this).data('name');
+                    _paq.push(['trackEvent',trackItem,'click','1']);
+                });
+
+                $("#talk-to-expert-form").validate();
+
+                $("#talk-to-expert-form").submit(function(event){
+                    event.preventDefault();
+                    var form = $(this);
+                    if(!form.valid()){
+                        return
+                    }
+                    $.post("https://api.flinkhub.com/email_to_expert/", form.serializeArray()).done(function(){
+                        $('#myModal').modal('hide');
+                        $('#emailExpertSuccess').modal("show");
+                    });
+                });
+
+
+            });
+        </script>
+        <script>
+            var swiper = new Swiper('.js__swiper-clients', {
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                slidesPerView: 3
+            });
+        </script>
+
+
 </html>
