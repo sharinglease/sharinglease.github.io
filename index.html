@@ -455,27 +455,6 @@
                 });
 
 
-                $('.trackData').click(function(){
-                    var trackItem = $(this).data('name');
-                    _paq.push(['trackEvent',trackItem,'click','1']);
-                });
-
-                $("#talk-to-expert-form").validate();
-
-                $("#talk-to-expert-form").submit(function(event){
-                    event.preventDefault();
-                    var form = $(this);
-                    if(!form.valid()){
-                        return
-                    }
-                    $.post("https://api.flinkhub.com/email_to_expert/", form.serializeArray()).done(function(){
-                        $('#myModal').modal('hide');
-                        $('#emailExpertSuccess').modal("show");
-                    });
-                });
-
-
-            });
         </script>
         <script>
             var swiper = new Swiper('.js__swiper-clients', {
